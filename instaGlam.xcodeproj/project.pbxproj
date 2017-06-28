@@ -18,6 +18,7 @@
 		F71036531F044C1E00E40D41 /* loginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71036521F044C1E00E40D41 /* loginTextField.swift */; };
 		F71036551F044C6A00E40D41 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71036541F044C6A00E40D41 /* loginViewController.swift */; };
 		F7DCBDE01F0453D400C6936A /* mainTabFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBDDF1F0453D400C6936A /* mainTabFeedController.swift */; };
+		F7DCBDE21F04560E00C6936A /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBDE11F04560E00C6936A /* CaptureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F71036521F044C1E00E40D41 /* loginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginTextField.swift; sourceTree = "<group>"; };
 		F71036541F044C6A00E40D41 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		F7DCBDDF1F0453D400C6936A /* mainTabFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTabFeedController.swift; sourceTree = "<group>"; };
+		F7DCBDE11F04560E00C6936A /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				F71036541F044C6A00E40D41 /* loginViewController.swift */,
 				F7DCBDDF1F0453D400C6936A /* mainTabFeedController.swift */,
+				F7DCBDE11F04560E00C6936A /* CaptureViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71036551F044C6A00E40D41 /* loginViewController.swift in Sources */,
+				F7DCBDE21F04560E00C6936A /* CaptureViewController.swift in Sources */,
 				F71036321F0449FB00E40D41 /* ViewController.swift in Sources */,
 				F71036301F0449FB00E40D41 /* AppDelegate.swift in Sources */,
 				F71036531F044C1E00E40D41 /* loginTextField.swift in Sources */,
