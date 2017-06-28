@@ -1,0 +1,6 @@
+framework module Pods_instaGlamTests {
+  umbrella header "Pods-instaGlamTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
