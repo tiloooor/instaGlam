@@ -16,7 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "Instagram"
+                configuration.clientKey = "tiloooor"
+                configuration.server = "https://hidden-refuge-22968.herokuapp.com/parse"
+            })
+        )
+        
+        if PFUser.current() != nil {
+            print("Welcome back!")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let FeedViewController = storyboard.instantiateViewController(withIdentifier: "mainTabFeedController")
+            window?.rootViewController = FeedViewController
+        }
+        
         return true
     }
 
