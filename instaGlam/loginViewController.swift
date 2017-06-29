@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse 
+import Parse
 
 class loginViewController: UIViewController {
     // MARK: Properties 

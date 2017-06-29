@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ParseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-instaGlam.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2844DE352EE58D38AD47E0D6F56AEB11</key>
+		<key>6EE458AB7C9239893E5C6E840C0BF9B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EE458AB7C9239893E5C6E840C0BF9B5</key>
+		<key>A760316124FD796EF09C09479E9F0021</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCAB5C4ED695CD7A12EF8DB2F9D1EFF6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

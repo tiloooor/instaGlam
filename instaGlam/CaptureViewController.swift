@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -31,8 +32,8 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.delegate = self
         captionTextField.delegate = self
         
-        selectedImage.image = nil
-        captionTextField.text = nil
+//        selectedImage.image = nil
+//        captionTextField.text = nil
     }
     
     // MARK: Delegates
@@ -64,21 +65,47 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = .photoLibrary
+        captionTextField.isHidden = false
         
         present(vc, animated: true, completion: nil)
     }
     
     @IBAction func pressPostButton(_ sender: Any) {
-        
-    }
+        Post.postUserImage(image: selectedImage.image, withCaption: captionTextField.text) { (success: Bool, error: Error?) in
+            if success {
+                print("successfully posted!")
+            } else if let error = error {
+                print(String(describing: error.localizedDescription))
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
+        }
     
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        let image = info[UIImagePickerControllerEditedImage] as? UIImage
+//        if image != nil {
+//            selectedImage.image = image
+//            captionTextField.isHidden = false
+//            dismiss(animated: true, completion: nil)
+//        }
+//    }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
     
+    
+    
+    
+
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
 
     /*
     // MARK: - Navigation
@@ -90,4 +117,4 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     */
 
-}
+

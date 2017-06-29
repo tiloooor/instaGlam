@@ -19,6 +19,8 @@
 		F71036551F044C6A00E40D41 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71036541F044C6A00E40D41 /* loginViewController.swift */; };
 		F7DCBDE01F0453D400C6936A /* mainTabFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBDDF1F0453D400C6936A /* mainTabFeedController.swift */; };
 		F7DCBDE21F04560E00C6936A /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBDE11F04560E00C6936A /* CaptureViewController.swift */; };
+		F7DCBDE41F045E2C00C6936A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBDE31F045E2C00C6936A /* Post.swift */; };
+		F7DCBDE61F046B5000C6936A /* postCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DCBDE51F046B5000C6936A /* postCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		F71036541F044C6A00E40D41 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		F7DCBDDF1F0453D400C6936A /* mainTabFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTabFeedController.swift; sourceTree = "<group>"; };
 		F7DCBDE11F04560E00C6936A /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		F7DCBDE31F045E2C00C6936A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F7DCBDE51F046B5000C6936A /* postCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F71036521F044C1E00E40D41 /* loginTextField.swift */,
+				F7DCBDE51F046B5000C6936A /* postCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 		F71036511F044B1900E40D41 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F7DCBDE31F045E2C00C6936A /* Post.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				TargetAttributes = {
 					F710362B1F0449FB00E40D41 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = MN29R57D4L;
 						ProvisioningStyle = Automatic;
 					};
 					F710363F1F0449FB00E40D41 = {
@@ -371,7 +378,9 @@
 				F71036321F0449FB00E40D41 /* ViewController.swift in Sources */,
 				F71036301F0449FB00E40D41 /* AppDelegate.swift in Sources */,
 				F71036531F044C1E00E40D41 /* loginTextField.swift in Sources */,
+				F7DCBDE41F045E2C00C6936A /* Post.swift in Sources */,
 				F7DCBDE01F0453D400C6936A /* mainTabFeedController.swift in Sources */,
+				F7DCBDE61F046B5000C6936A /* postCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +520,7 @@
 			baseConfigurationReference = 5E4AB2EA0D2D51DD5CE54C7C /* Pods-instaGlam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MN29R57D4L;
 				INFOPLIST_FILE = instaGlam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.Tyler.instaGlam;
@@ -524,6 +534,7 @@
 			baseConfigurationReference = 42FC3C0CEE8C1116392D6F40 /* Pods-instaGlam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MN29R57D4L;
 				INFOPLIST_FILE = instaGlam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.Tyler.instaGlam;
