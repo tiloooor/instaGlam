@@ -28,12 +28,10 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         picker.delegate = self
         captionTextField.delegate = self
         
-//        selectedImage.image = nil
-//        captionTextField.text = nil
     }
     
     // MARK: Delegates

@@ -146,8 +146,8 @@
 		F710364F1F044B0B00E40D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F71036521F044C1E00E40D41 /* loginTextField.swift */,
 				F7DCBDE51F046B5000C6936A /* postCell.swift */,
+				F71036521F044C1E00E40D41 /* loginTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

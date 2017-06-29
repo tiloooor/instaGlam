@@ -14,16 +14,26 @@ class postCell: UITableViewCell {
     
     // MARK: Properties
     
-    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var feedUserNameLabel: UILabel!
     @IBOutlet weak var postImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    
+    
     
     var post: PFObject! {
         didSet {
             self.postImageView.file = post["media"] as? PFFile
             self.postImageView.loadInBackground()
-            let author = post["author"] as? PFUser
-            self.userNameLabel.text = author?["username"] as? String
+            let author = post["authorId"] as? PFUser
+            
+            if let user = post["authorId"] as? PFUser {
+                self.feedUserNameLabel.text = user.username
+            } else {
+                self.feedUserNameLabel.text = " "
+            }
+            
+//            self.userNameLabel.text = author?["username"] as? String
             self.captionLabel.text = post["caption"] as? String
         }
     }

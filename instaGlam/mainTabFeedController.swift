@@ -15,8 +15,10 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: Properties
     
     var post: [PFObject] = []
-    var username: [PFObject]?
     
+    
+    
+    @IBOutlet weak var feedUserNameLabel: UILabel!
     @IBOutlet weak var feedTableView: UITableView!
     
     
@@ -26,11 +28,20 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
         feedTableView.dataSource = self
         feedTableView.delegate = self
         updatePosts()
+//        
+//        // Make profile pic circular
+//        feedPic.layer.borderWidth = 1
+//        feedPic.layer.masksToBounds = false
+//        feedPic.layer.borderColor = UIColor.lightGray.cgColor
+//        feedPic.layer.cornerRadius = feedTableView.frame.height/2
+//        feedPic.clipsToBounds = true
         
-//        // Set up Refresh Control
-//        let refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
-//        tableView.insertSubview(refreshControl, at: 0)
+
+        
+        // Set up Refresh Control
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        feedTableView.insertSubview(refreshControl, at: 0)
         
     }
     
@@ -40,6 +51,7 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
         query.order(byDescending: "creationTime")
         query.limit = 20
         query.includeKey("authorId")
+        //query.includeKey("caption")
         
         
         query.findObjectsInBackground { (posts: [PFObject]?,
@@ -68,22 +80,10 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-  
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        updatePosts()
+        refreshControl.endRefreshing()
     }
-    */
 
 }
