@@ -46,6 +46,10 @@ class loginViewController: UIViewController {
         }
     }
     
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+  
     
     
     @IBAction func pressLoginButton(_ sender: Any) {

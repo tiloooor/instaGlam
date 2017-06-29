@@ -18,10 +18,11 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+
+    
     @IBOutlet weak var feedUserNameLabel: UILabel!
     @IBOutlet weak var feedTableView: UITableView!
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
