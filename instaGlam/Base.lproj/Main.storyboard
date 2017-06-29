@@ -187,6 +187,7 @@
                                             <outlet property="feedUserNameLabel" destination="mu4-um-WlW" id="U6u-CX-X5P"/>
                                             <outlet property="postImageView" destination="Y6w-3i-ULb" id="6Wn-ZG-7dP"/>
                                             <outlet property="timeStamp" destination="kYy-8q-wAk" id="pG8-Uo-1gD"/>
+                                            <segue destination="sX7-J8-TiT" kind="show" id="RGm-it-QfF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -208,6 +209,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiG-ga-Vle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2623.1999999999998" y="-579.76011994002999"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="U1c-tb-ByT">
+            <objects>
+                <viewController id="sX7-J8-TiT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YZg-Xj-z7X"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFu-ch-di4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d85-lc-WXA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lo0-ur-e1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3350" y="-580"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xYN-4q-Mv4">
