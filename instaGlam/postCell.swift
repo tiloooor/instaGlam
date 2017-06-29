@@ -21,6 +21,8 @@ class postCell: UITableViewCell {
     
     
     
+    
+    
     var post: PFObject! {
         didSet {
             self.postImageView.file = post["media"] as? PFFile
