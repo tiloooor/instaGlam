@@ -25,6 +25,7 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         feedTableView.dataSource = self
         feedTableView.delegate = self
         updatePosts()

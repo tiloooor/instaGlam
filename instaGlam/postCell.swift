@@ -18,6 +18,8 @@ class postCell: UITableViewCell {
     @IBOutlet weak var feedUserNameLabel: UILabel!
     @IBOutlet weak var postImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var timeStamp: UILabel!
+    
     
     
     
@@ -27,15 +29,25 @@ class postCell: UITableViewCell {
             self.postImageView.loadInBackground()
             let author = post["authorId"] as? PFUser
             
+            
+            if let creationTime = post["creationTime"] {
+                let postDateFormatter: DateFormatter = {
+                    let f = DateFormatter()
+                    f.dateFormat = "MMM d, yyyy hh:mm"
+                    return f
+                }()
+                self.timeStamp.text = postDateFormatter.string(from: Date(timeIntervalSinceReferenceDate: creationTime as! TimeInterval))
+
+            }
+            
             if let user = post["authorId"] as? PFUser {
                 self.feedUserNameLabel.text = user.username
             } else {
                 self.feedUserNameLabel.text = " "
             }
-            
-//            self.userNameLabel.text = author?["username"] as? String
             self.captionLabel.text = post["caption"] as? String
         }
+        
     }
     
 
