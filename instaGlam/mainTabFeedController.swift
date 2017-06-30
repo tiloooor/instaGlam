@@ -14,9 +14,18 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
 
     // MARK: Properties
     
-    var post: [PFObject] = []
+    var post: [PFObject]? = []
     
     
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOutInBackground { _ in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "LoginScreen") as? loginViewController {
+                UIApplication.shared.keyWindow?.rootViewController = vc
+        
+            }
+        }
+    }
     
 
     
@@ -69,13 +78,13 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! postCell
-    let posts = self.post[indexPath.row]
+    let posts = self.post?[indexPath.row]
     cell.post = posts
     return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return post.count
+        return post!.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,5 +96,19 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
         updatePosts()
         refreshControl.endRefreshing()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        let vc = segue.destination as! DetailViewController
+        
+        // grabbing info from cell.
+        if let indexPath = feedTableView.indexPath(for: cell) {
+            if let thisPost = post?[indexPath.row] {
+                vc.post = thisPost
+            }
 
+        }
+  
+    }
+    
 }

@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        if let currentUser = PFUser.current() {
+            print("Welcome back \(currentUser.username!)")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let CaptureViewController = storyboard.instantiateViewController(withIdentifier: "appFeed")
+            window?.rootViewController = CaptureViewController
+        }
+        
+        
+
+        
         
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in

@@ -33,7 +33,7 @@ class postCell: UITableViewCell {
             if let creationTime = post["creationTime"] {
                 let postDateFormatter: DateFormatter = {
                     let f = DateFormatter()
-                    f.dateFormat = "MMM d, yyyy hh:mm"
+                    f.dateFormat = "MMM d, yyyy"
                     return f
                 }()
                 self.timeStamp.text = postDateFormatter.string(from: Date(timeIntervalSinceReferenceDate: creationTime as! TimeInterval))
@@ -48,6 +48,7 @@ class postCell: UITableViewCell {
             self.captionLabel.text = post["caption"] as? String
         }
         
+        
     }
     
 
@@ -55,7 +56,8 @@ class postCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
