@@ -14,7 +14,8 @@ class postCell: UITableViewCell {
     
     // MARK: Properties
     
-    
+   
+    @IBOutlet weak var userProfileImage: PFImageView!
     @IBOutlet weak var feedUserNameLabel: UILabel!
     @IBOutlet weak var postImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
@@ -51,10 +52,18 @@ class postCell: UITableViewCell {
         
     }
     
+    override func layoutSubviews() {
+        self.userProfileImage.layer.cornerRadius = self.userProfileImage.frame.size.width / 2;
+        self.userProfileImage.clipsToBounds = true
+        
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        
     }
     
     

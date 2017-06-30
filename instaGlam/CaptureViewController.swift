@@ -8,8 +8,10 @@
 
 import UIKit
 import Parse
+import Fusuma
 
-class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+
+class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, FusumaDelegate {
 
     // MARK: Properties
     
@@ -59,13 +61,86 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func addImagePressed(_ sender: Any) {
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = .photoLibrary
-        captionTextField.isHidden = false
+//        let vc = UIImagePickerController()
+//        vc.delegate = self
+//        vc.allowsEditing = true
+//        vc.sourceType = .photoLibrary
+//        captionTextField.isHidden = false
+//        
+//        present(vc, animated: true, completion: nil)
         
-        present(vc, animated: true, completion: nil)
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.hasVideo = true // If you want to let the users allow to use video.
+        self.present(fusuma, animated: true, completion: nil)
+        
+    }
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        
+        switch source {
+            
+        case .camera:
+            
+            print("Image captured from Camera")
+            
+        case .library:
+            
+            print("Image selected from Camera Roll")
+            
+        default:
+            
+            print("Image selected")
+        }
+        
+        selectedImage.image = image
+    }
+    
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {
+        
+        print("Number of selection images: \(images.count)")
+        
+        var count: Double = 0
+        
+        for image in images {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + (3.0 * count)) {
+                
+                self.selectedImage.image = image
+                print("w: \(image.size.width) - h: \(image.size.height)")
+            }
+            count += 1
+        }
+    }
+    
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {
+        
+        print("video completed and output to file: \(fileURL)")
+        //self.fileUrlLabel.text = "file output to: \(fileURL.absoluteString)"
+    }
+    
+    
+    func fusumaCameraRollUnauthorized() {
+        
+        print("Camera roll unauthorized")
+        
+        let alert = UIAlertController(title: "Access Requested",
+                                      message: "Saving image needs to access your photo album",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Settings", style: .default) { (action) -> Void in
+            
+            if let url = URL(string:UIApplicationOpenSettingsURLString) {
+                
+                UIApplication.shared.openURL(url)
+            }
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            
+        })
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func pressPostButton(_ sender: Any) {
