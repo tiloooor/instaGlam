@@ -76,6 +76,7 @@ class mainTabFeedController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! postCell
     let posts = self.post?[indexPath.row]

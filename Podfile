@@ -5,6 +5,7 @@
 target 'instaGlam' do
   pod 'Parse'
   pod 'ParseUI'
+  pod 'Fusuma'
  
 
   # Pods for instaGlam
